@@ -42,3 +42,11 @@ TEST(FieldTest, safe)
   minefield.placeMine(4,5);
   ASSERT_EQ(EMPTY_HIDDEN, minefield.get(4,4));
 }
+
+TEST(FieldTest, revealed)
+{
+  Field minefield;
+  minefield.placeMine(1,1);
+  minefield.revealAdjacent(2,1);
+  ASSERT_EQ(EMPTY_SHOWN, minefield.get(2,1));
+}
